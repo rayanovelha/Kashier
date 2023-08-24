@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Restaurante</string>
-    <string name="title_activity_admin">AdminActivity</string>
+    <string name="app_name">Kashier</string>
+    <string name="title_activity_admin">Admin</string>
+    <string name="title_activity_product_management">Gestão de Produtos</string>
+    <string name="title_activity_product_register">Cadastro de Produtos</string>
+    <string name="title_activity_main">Tela Principal</string>
 </resources>

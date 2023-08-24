@@ -81,7 +81,7 @@ class ProductRegisterActivity : ComponentActivity() {
                 Surface {
                     ProductRegisterScaffold(onSaveClick = { product ->
                         Restaurant.addProduct(product)
-                        Log.i("PRODUTO CADASTRADO",Restaurant.products().toString())
+                        Log.i("PRODUTO CADASTRADO",Restaurant.listProducts().toString())
                         finish()
                     }, onClick = {
                         finish()
@@ -471,7 +471,7 @@ fun ProductRegisterScaffold(
             }
         },
         floatingActionButtonPosition = FabPosition.Center,
-        topBar = { StandardTopAppBar("Cadastro de Produto") }
+        topBar = { StandardTopAppBar(R.string.title_activity_product_register.toString()) }
     ) { paddingValues ->
         Box(
             modifier = Modifier
