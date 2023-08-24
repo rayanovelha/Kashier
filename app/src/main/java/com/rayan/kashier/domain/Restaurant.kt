@@ -21,7 +21,7 @@ object Restaurant {
             if (!categories.contains(it.category))
                 categories.add(it.category)
         }
-        return categories.toList().sortedBy { it }
+        return categories.toList().distinctBy { it }.sortedBy { it }
     }
 
     /*fun searchProductsList (search: String): List<Product> {
