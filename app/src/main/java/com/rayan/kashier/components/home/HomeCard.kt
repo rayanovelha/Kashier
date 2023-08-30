@@ -10,6 +10,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material.icons.sharp.TextFields
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -25,6 +28,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rayan.kashier.R
@@ -91,4 +95,15 @@ fun HomeCard(content: Triple<String, ImageVector, Int>, onCardClick: () -> Unit 
         }
 
     }
+}
+
+@Preview (showBackground = true)
+@Composable
+fun HomeCardPreview() {
+    HomeCard(
+        Triple("Modo Caixa", Icons.Filled.ShoppingCart, R.drawable.card_cashier),
+        {null},
+        300,
+        180
+    )
 }
