@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
 
 
         val mainToAdmin = Intent(this, AdminActivity::class.java)
-        val mainToCashier = Intent(this, ProductRegisterActivity::class.java)
+        val mainToCashier = Intent(this, CashierActivity::class.java)
         val homeUiState = HomeUiState()
 
         setContent {

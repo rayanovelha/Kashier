@@ -1,10 +1,15 @@
 package com.rayan.kashier
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -24,12 +29,15 @@ class ProductManagementActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val productManagementUiState = ProductManagementUiState()
+        val toProductRegister = Intent(this, ProductRegisterActivity::class.java)
 
         setContent {
             KashierTheme {
                 ProductManagementScaffold(products = Restaurant.listProducts(),
                     uiState = productManagementUiState,
-                    onBackClick = { finish() })
+                    onBackClick = { finish() },
+                    onPlusClick = { startActivity(toProductRegister) }
+                )
             }
         }
     }
@@ -37,13 +45,21 @@ class ProductManagementActivity : ComponentActivity() {
 
 @Composable
 fun ProductManagementScaffold(
-    products: List<Product>, uiState: ProductManagementUiState, onBackClick: () -> Unit = {}
+    products: List<Product>, uiState: ProductManagementUiState, onBackClick: () -> Unit = {}, onPlusClick: () -> Unit = {}
 ) {
     Scaffold(topBar = {
         TextAndBackIconTopAppBar(
             text = "Gestão de Produtos", onBackClick = onBackClick
         )
-    }) { paddingValues ->
+    },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = onPlusClick
+            ){
+                Icon(Icons.Default.Add,null)
+            }
+        }
+    ) { paddingValues ->
 
         Box(modifier = Modifier.padding(paddingValues)) {
             ProductManagementScreen(products = products, state = uiState)
@@ -56,5 +72,5 @@ fun ProductManagementScaffold(
 @Composable
 fun ProductManagementScaffoldPreview() {
     val uiState = remember { ProductManagementUiState() }
-    ProductManagementScaffold(sampleProduct + sampleCombo, uiState, { null })
+    ProductManagementScaffold(sampleProduct + sampleCombo, uiState, { null }, { null })
 }
