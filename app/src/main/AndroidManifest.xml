@@ -43,6 +43,13 @@
             android:theme="@style/Theme.Kashier"
             android:windowSoftInputMode="adjustResize">
         </activity>
+        <activity
+            android:name=".CashierActivity"
+            android:exported="true"
+            android:label="@string/title_activity_product_register"
+            android:theme="@style/Theme.Kashier"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
     </application>
 
 </manifest>

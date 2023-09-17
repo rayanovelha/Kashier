@@ -1,8 +1,14 @@
 package com.rayan.kashier.components.products
 
 import android.icu.math.BigDecimal
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideIn
+import androidx.compose.animation.slideOut
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AddAPhoto
 import androidx.compose.material.icons.outlined.AttachMoney
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Lock
@@ -10,6 +16,7 @@ import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.material.icons.outlined.Numbers
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.tooling.preview.Preview
 import com.rayan.kashier.screen.ProductRegisterUiState
 import java.text.DecimalFormat
 
@@ -21,6 +28,24 @@ fun ComboProductForm(state: ProductRegisterUiState) {
     }
 
     Column {
+
+        AnimatedVisibility(
+            visible = state.isImageShowed,
+            enter = fadeIn(),
+            exit = fadeOut()
+        ){
+            CoilImageShower(state.image)
+        }
+
+        FormTextField(
+            content = "Link da imagem" to Icons.Default.AddAPhoto,
+            text = state.image,
+            onTextChange = {
+                state.image = it
+            },
+            isEnabled = true
+        )
+
         FormTextField(
             content = "Digite o nome do combo" to Icons.Outlined.Info,
             text = state.name,
@@ -59,4 +84,10 @@ fun ComboProductForm(state: ProductRegisterUiState) {
             isEnabled = false
         )
     }
+}
+
+@Preview (showBackground = true)
+@Composable
+fun ComboProductPreview() {
+    ComboProductForm(ProductRegisterUiState())
 }

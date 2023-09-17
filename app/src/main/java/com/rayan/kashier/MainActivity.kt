@@ -28,10 +28,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val sampleProducts = sampleCombo + sampleProduct
-        sampleProducts.forEach {
-            Restaurant.addProduct(it)
-        }
+//        val sampleProducts = sampleCombo + sampleProduct
+//        sampleProducts.forEach {
+//            Restaurant.addProduct(it)
+//        }
 
 
         val mainToAdmin = Intent(this, AdminActivity::class.java)

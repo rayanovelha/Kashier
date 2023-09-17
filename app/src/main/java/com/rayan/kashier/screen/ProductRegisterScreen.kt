@@ -1,13 +1,16 @@
 package com.rayan.kashier.screen
 
 import androidx.compose.animation.Crossfade
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -28,26 +31,30 @@ class ProductRegisterUiState {
     var number by mutableStateOf("")
     var description by mutableStateOf("")
     var category by mutableStateOf("")
-    var image by mutableStateOf("https://images.pexels.com/photos/14469273/pexels-photo-14469273.jpeg")
+    var image by mutableStateOf("")
+
+    val isImageShowed by derivedStateOf {
+        if (image.isNotEmpty() || image.isNotBlank())
+            true
+        else
+            false
+    }
 }
 
 @Composable
 fun ProductRegisterScreen(state: ProductRegisterUiState) {
     Column(
+        verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
             //.padding(horizontal = 16.dp)
-            .verticalScroll(rememberScrollState()),
+            .verticalScroll(rememberScrollState())
     ) {
 
         Spacer(modifier = Modifier)
 
         ProductSelectorRadioButton(state)
-
-        CoilImageShower(state.image)
-
-        Spacer(modifier = Modifier.size(16.dp))
 
         val selected = (state.selectedOption == state.radioOptions[1])
 
