@@ -27,7 +27,9 @@ class AdminActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val adminUiState = AdminUiState(
-            getString(R.string.title_activity_product_management)
+            getString(R.string.title_activity_product_management),
+            getString(R.string.title_activity_finance_management),
+            getString(R.string.title_activity_restaurant_management)
         )
 
         val adminToProductManagement = Intent(this, ProductManagementActivity::class.java)
@@ -67,6 +69,11 @@ fun AdminScaffold(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun AdminScaffoldPreview() {
-    val state = remember { AdminUiState("Gestão de Produtos") }
+    val state =
+        remember { AdminUiState(
+            "Gestão de Produtos",
+            "Financeiro",
+            "Dados do Restaurante"
+        ) }
     AdminScaffold({ null }, state, { null })
 }

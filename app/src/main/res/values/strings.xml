@@ -3,6 +3,8 @@
     <string name="title_activity_admin">Admin</string>
     <string name="title_activity_cashier">Caixa</string>
     <string name="title_activity_product_management">Gestão de Produtos</string>
+    <string name="title_activity_finance_management">Financeiro</string>
+    <string name="title_activity_restaurant_management">Dados do Restaurante</string>
     <string name="title_activity_product_register">Cadastro de Produtos</string>
     <string name="title_activity_main">Tela Principal</string>
 </resources>
