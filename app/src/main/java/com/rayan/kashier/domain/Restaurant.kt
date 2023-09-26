@@ -4,7 +4,7 @@ import androidx.compose.runtime.mutableStateListOf
 
 object Restaurant {
     const val id: Int = 0
-    const val nome: String = "Restaurante de Sushi"
+    const val nome: String = "Restaurante"
     const val logo: String = "https://images.pexels.com/photos/15197997/pexels-photo-15197997/free-photo-of-aperitivo-lanche-petisco-fotografia-de-alimentos.jpeg"
 
     private val products = mutableStateListOf<Product>()

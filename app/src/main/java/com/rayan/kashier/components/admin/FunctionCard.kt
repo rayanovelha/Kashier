@@ -4,6 +4,8 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
@@ -42,13 +44,15 @@ fun FunctionCard(
 
     Card(
         onClick = { onCardClick() },
-        modifier = Modifier.wrapContentSize(),
+        modifier = Modifier
+            .wrapContentSize()
+            .fillMaxWidth(0.9f),
         shape = CardDefaults.shape,
         colors = CardDefaults.cardColors(
             contentColor = Color.Black,
             containerColor = Color.White
         ),
-        border = BorderStroke(1.dp,Color.LightGray)
+        border = BorderStroke(1.dp, Color.LightGray)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -62,6 +66,7 @@ fun FunctionCard(
                 modifier = Modifier
                     .padding(end = padding.dp)
             )
+            Spacer(modifier = Modifier.weight(1.0f))
             Image(
                 modifier = Modifier
                     .padding(start = padding.dp)
